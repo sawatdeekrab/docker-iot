@@ -1,0 +1,12 @@
+
+FROM nodered/node-red-docker
+
+# File Author / Maintainer
+
+################## BEGIN INSTALLATION ######################
+RUN npm install node-red-node-mysql
+RUN npm install node-red-node-netpie
+##################### INSTALLATION END #####################
+
+# Expose the default port
+EXPOSE 1880

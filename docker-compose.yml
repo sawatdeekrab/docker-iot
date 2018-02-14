@@ -1,0 +1,47 @@
+version: '3.1'
+
+services:
+
+  mysql:
+    image: mysql
+    command: ['--character-set-server=utf8', '--collation-server=utf8_unicode_ci', '--init-connect=SET NAMES utf8']
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 3306:3306
+    networks:
+      - back
+
+  mqtt:
+    image: eclipse-mosquitto
+    restart: always
+    ports: 
+      - 1883:1883 
+      - 9001:9001
+    networks:
+      - back
+
+  nodered:
+    build:
+      context: .
+      dockerfile: Dockerfile_NodeRed
+    restart: always
+    ports: 
+      - 1880:1880 
+    networks:
+      - back
+    
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports: 
+      - 80:80
+    environment:
+      PMA_HOST: mysql
+    networks:
+      - back
+
+networks:
+  back:
+    
