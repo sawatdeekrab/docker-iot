@@ -6,6 +6,7 @@ FROM nodered/node-red-docker
 ################## BEGIN INSTALLATION ######################
 RUN npm install node-red-node-mysql
 RUN npm install node-red-node-netpie
+RUN npm install node-red-dashboard
 ##################### INSTALLATION END #####################
 
 # Expose the default port
