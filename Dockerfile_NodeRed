@@ -2,8 +2,14 @@
 FROM nodered/node-red-docker
 
 # File Author / Maintainer
+# Thanee Ananitthi
 
 ################## BEGIN INSTALLATION ######################
+USER root
+ENV TZ=Asia/Bangkok
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+USER node-red
 RUN npm install node-red-node-mysql
 RUN npm install node-red-node-netpie
 RUN npm install node-red-dashboard
