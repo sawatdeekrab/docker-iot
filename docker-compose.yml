@@ -20,6 +20,8 @@ services:
     ports: 
       - 1883:1883 
       - 9001:9001
+    environment:
+      TZ: "Asia/Bangkok"
     networks:
       - back
 
@@ -30,6 +32,8 @@ services:
     restart: always
     ports: 
       - 1880:1880 
+    environment:
+      TZ: "Asia/Bangkok"
     networks:
       - back
     
@@ -40,6 +44,7 @@ services:
       - 80:80
     environment:
       PMA_HOST: mysql
+      TZ: "Asia/Bangkok"
     networks:
       - back
 
