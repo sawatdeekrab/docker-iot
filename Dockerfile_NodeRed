@@ -5,9 +5,9 @@ FROM nodered/node-red-docker
 # Thanee Ananitthi
 
 ################## BEGIN INSTALLATION ######################
-USER root
-ENV TZ=Asia/Bangkok
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+#USER root
+#ENV TZ=Asia/Bangkok
+#RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 USER node-red
 RUN npm install node-red-node-mysql
